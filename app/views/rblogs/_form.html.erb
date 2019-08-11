@@ -1,4 +1,4 @@
-<%= form_with(model: rblog, local: true) do |form| %>
+<%= form_with(model: rblog, local: true, data: {controller: 'tui-editor', action: 'submit->tui-editor#submit'}) do |form| %>
   <% if rblog.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(rblog.errors.count, "error") %> prohibited this rblog from being saved:</h2>
@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, data: { editor: 'tui-editor', target: 'tui-editor.content' } %>
   </div>
 
   <div class="field">
@@ -32,6 +32,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

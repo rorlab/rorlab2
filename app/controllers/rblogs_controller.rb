@@ -25,6 +25,7 @@ class RblogsController < ApplicationController
   # POST /rblogs.json
   def create
     @rblog = Rblog.new(rblog_params)
+    @rblog.writer = current_user
 
     respond_to do |format|
       if @rblog.save
