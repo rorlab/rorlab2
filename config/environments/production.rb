@@ -51,7 +51,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -109,4 +109,19 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  config.action_mailer.asset_host = "https://www.rorlab.org"
+  config.action_mailer.default_url_options = { host: 'www.rorlab.org' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: Rails.application.credentials.dig(:ses, :smtp, :address),
+    port: Rails.application.credentials.dig(:ses, :smtp, :port),
+    user_name: Rails.application.credentials.dig(:ses, :smtp, :user_name),
+    password: Rails.application.credentials.dig(:ses, :smtp, :password),
+    authentication: :login,
+    enable_starttls_auto: true
+  }  
 end
