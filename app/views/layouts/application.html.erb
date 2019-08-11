@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    <!-- 여기에 navbar 삽입 -->
+    <div data-controller='flash' 
+      data-flash-messages='<%= flash[:notice] || notice %>'></div>
+      
     <div class='container'>
       <%= render 'layouts/navbar' %>
       <%= yield %>
