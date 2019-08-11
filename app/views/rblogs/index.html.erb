@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Content</th>
       <th>Writer</th>
       <th>Shared</th>
       <th colspan="3"></th>
@@ -17,7 +16,6 @@
     <% @rblogs.each do |rblog| %>
       <tr>
         <td><%= rblog.title %></td>
-        <td><%= rblog.content %></td>
         <td><%= rblog.writer_id %></td>
         <td><%= rblog.shared %></td>
         <td><%= link_to 'Show', rblog %></td>
@@ -30,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Rblog', new_rblog_path %>
+<%= link_to 'New Rblog', new_rblog_path, class: 'btn btn-primary' %>

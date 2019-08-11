@@ -7,7 +7,10 @@ body {
   line-height: 18px;
 }
 
-p, ol, ul, td {
+p,
+ol,
+ul,
+td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -20,16 +23,16 @@ pre {
 }
 
 a {
-  color: #000;
+  // color: #000;
 
   &:visited {
-    color: #666;
+    color: rgb(206, 206, 206);
   }
 
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+  // &:hover {
+  //   color: #fff;
+  //   background-color: #000;
+  // }
 }
 
 th {
@@ -41,7 +44,9 @@ td {
 }
 
 div {
-  &.field, &.actions {
+
+  &.field,
+  &.actions {
     margin-bottom: 10px;
   }
 }
