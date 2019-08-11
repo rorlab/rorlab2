@@ -21,14 +21,12 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-  host: <%= Rails.application.credentials.database[:hostname] %>
-  port: <%= Rails.application.credentials.database[:port] %>
-  database: <%= Rails.application.credentials.database[:db_name] %>
-  username: <%= Rails.application.credentials.database[:username] %>
-  password: <%= Rails.application.credentials.database[:password] %>
-
 development:
   <<: *default
+  host: localhost
+  database: rorlab2_development
+  username: deployer
+  password:
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -78,3 +76,8 @@ test:
 #
 production:
   <<: *default
+  host: <%= Rails.application.credentials.database[:hostname] %>
+  port: <%= Rails.application.credentials.database[:port] %>
+  database: <%= Rails.application.credentials.database[:db_name] %>
+  username: <%= Rails.application.credentials.database[:username] %>
+  password: <%= Rails.application.credentials.database[:password] %>
