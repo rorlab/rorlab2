@@ -25,9 +25,9 @@ pre {
 a {
   // color: #000;
 
-  &:visited {
-    color: rgb(206, 206, 206);
-  }
+  // &:visited {
+  //   color: rgb(84, 84, 84);
+  // }
 
   // &:hover {
   //   color: #fff;
@@ -47,7 +47,8 @@ div {
 
   &.field,
   &.actions {
-    margin-bottom: 10px;
+    display: block;
+    margin-bottom: 1rem;
   }
 }
 

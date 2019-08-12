@@ -38,7 +38,7 @@
       <% if user_signed_in? %>
         <li class="nav-item dropdown <%= 'active' if devise_controller? %>">
           <a class="nav-link dropdown-toggle" href="#" id='navbarDropdown2' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%#= user_profile current_user %>
+            <%= user_profile current_user %>
             <%#= current_user.account_name %>
             <b class="caret"></b>
           </a>
