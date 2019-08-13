@@ -1,0 +1,10 @@
+<div class="rblog card">
+  <img src="https://via.placeholder.com/150x<%= rand(100..200) %>.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= rblog.title %></h5>
+    <p class="card-text"><%= truncate rblog.content.strip, length: 200 %></p>
+    <%= link_to 'Read', rblog, class: 'btn btn-success btn-sm' %>
+    <%= link_to 'Edit', edit_rblog_path(rblog), class: 'btn btn-primary btn-sm' %>
+    <%= link_to 'Delete', rblog, method: 'delete', data:{ confirm: t('are_you_sure')}, class: 'btn btn-danger btn-sm' %>
+  </div>
+</div>

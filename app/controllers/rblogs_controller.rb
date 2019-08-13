@@ -4,7 +4,7 @@ class RblogsController < ApplicationController
   # GET /rblogs
   # GET /rblogs.json
   def index
-    @rblogs = Rblog.all
+    @rblogs = Rblog.order(created_at: :desc)
   end
 
   # GET /rblogs/1
