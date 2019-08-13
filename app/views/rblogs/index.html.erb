@@ -1,9 +1,11 @@
-<h2>Rblogs</h2>
+<h2 class='font-weight-bolder'>Rblogs</h2>
 
-<div id='rblogs' class="card-columns">
+<div id='rblogs' class="card-columns" data-controller='endless'>
   <%= render @rblogs %>
 </div>
 
-<br>
+<button id='gotop' data-action='click->endless#gotop'>go to Top</button>
+
+<%= will_paginate @rblogs %>
 
 <%= link_to 'New Rblog', new_rblog_path, class: 'btn btn-primary' %>

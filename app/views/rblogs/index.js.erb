@@ -1,0 +1,11 @@
+$('#posts').append('<div>[<%= j @rblogs.current_page %> 페이지] -------------> </div>');
+$('#posts').append('<%= j render(@rblogs) %>');
+console.log("rendered page <%= @rblogs.current_page %>");
+
+<% if @rblogs.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@rblogs) %>');
+  $(".pagination").hide();
+<% else %>
+  $("#gotop").show();
+  $('.pagination').remove();
+<% end %>

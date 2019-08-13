@@ -4,7 +4,7 @@ class RblogsController < ApplicationController
   # GET /rblogs
   # GET /rblogs.json
   def index
-    @rblogs = Rblog.order(created_at: :desc)
+    @rblogs = Rblog.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   # GET /rblogs/1
