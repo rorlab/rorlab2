@@ -1,4 +1,6 @@
 class Rblog < ApplicationRecord
+  resourcify
+  
   belongs_to :writer, class_name: 'User'
 
   def image_urls

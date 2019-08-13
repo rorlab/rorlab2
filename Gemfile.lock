@@ -143,6 +143,8 @@ GEM
     public_suffix (3.1.1)
     puma (3.12.1)
     puma (3.12.1-java)
+    pundit (2.0.1)
+      activesupport (>= 3.0.0)
     rack (2.0.7)
     rack-proxy (0.6.5)
       rack
@@ -182,6 +184,7 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rolify (5.2.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.3)
     sass (3.7.4)
@@ -264,7 +267,9 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
+  pundit
   rails (~> 6.0.0.rc2)
+  rolify
   sass-rails (~> 5)
   selenium-webdriver
   spring
