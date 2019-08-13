@@ -49,6 +49,9 @@ div {
   &.actions {
     display: block;
     margin-bottom: 1rem;
+    label {
+      margin-bottom: .2rem;
+    }
   }
 }
 
