@@ -1,10 +1,6 @@
 import swal from 'sweetalert2'
 import Rails from '@rails/ujs'
 
-// document.addEventListener('turbolinks:load', function(){
-//   swal.fire('hello world')
-// })
-
 Rails.confirm = function (message, element) {
   const swalWithBootstrap = swal.mixin({
     customClass: {
@@ -20,8 +16,8 @@ Rails.confirm = function (message, element) {
       html: message,
       type: 'success',
       showCancelButton: true,
-      confirmButtonText: 'Okay',
-      cancelButtonText: 'Cancel'
+      confirmButtonText: i18n.t('okay'),
+      cancelButtonText: i18n.t('cancel')
     })
     .then((result) => {
       if (result.value) {
