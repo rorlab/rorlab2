@@ -12,7 +12,11 @@
 
   <body>
     <div data-controller='flash' 
-      data-flash-messages='<%= flash[:notice] || notice %>'></div>
+      data-flash-success='<%= flash[:notice] || notice %>'
+      data-flash-info='<%= flash[:info] || info %>'
+      data-flash-warning='<%= flash[:alert] || alert %>'
+      data-flash-error='<%= flash[:error] || error %>'
+    ></div>
       
     <div class='container'>
       <%= render 'layouts/navbar' %>

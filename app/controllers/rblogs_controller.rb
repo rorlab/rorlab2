@@ -10,6 +10,7 @@ class RblogsController < ApplicationController
   # GET /rblogs/1
   # GET /rblogs/1.json
   def show
+    authorize @rblog
   end
 
   # GET /rblogs/new
