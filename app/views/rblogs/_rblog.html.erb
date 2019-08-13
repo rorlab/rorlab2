@@ -1,5 +1,5 @@
 <div class="rblog card">
-  <img src="https://via.placeholder.com/150x<%= rand(100..200) %>.png" class="card-img-top" alt="...">
+  <%= image_tag rblog.poster_image_url, class: 'card-img-top' if rblog.poster_image_url %>
   <div class="card-body">
     <h5 class="card-title"><%= rblog.title %></h5>
     <p class="card-text"><%= truncate rblog.content.strip, length: 200 %></p>

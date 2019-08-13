@@ -3,7 +3,7 @@ import {
 } from "stimulus";
 
 export default class extends Controller {
-  static targets = []
+  static targets = [];
 
   connect() {
     $(".pagination").hide();
@@ -13,7 +13,7 @@ export default class extends Controller {
         let url = $('.pagination .next_page').attr('href');
         if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
           $('.pagination').text("Loading more posts...");
-          return $.cachedScript(url);
+          return $.getScript(url);
         }
       });
       return $(window).scroll();

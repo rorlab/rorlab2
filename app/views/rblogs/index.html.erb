@@ -1,10 +1,14 @@
 <h2 class='font-weight-bolder'>Rblogs</h2>
 
-<div id='rblogs' class="card-columns" data-controller='endless'>
-  <%= render @rblogs %>
-</div>
+<div data-controller='endless'>
+  <div id='rblogs' class="card-columns">
+    <%= render @rblogs %>
+  </div>
 
-<button id='gotop' data-action='click->endless#gotop'>go to Top</button>
+  <div class='text-right'>
+    <button id='gotop' data-action='click->endless#gotop' class='btn btn-primary btn-sm'>Go to Top</button>
+  </div>
+</div>
 
 <%= will_paginate @rblogs %>
 
