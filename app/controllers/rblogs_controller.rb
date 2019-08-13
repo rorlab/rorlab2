@@ -20,6 +20,7 @@ class RblogsController < ApplicationController
 
   # GET /rblogs/1/edit
   def edit
+    authorize @rblog
   end
 
   # POST /rblogs
@@ -42,6 +43,7 @@ class RblogsController < ApplicationController
   # PATCH/PUT /rblogs/1
   # PATCH/PUT /rblogs/1.json
   def update
+    authorize @rblog
     respond_to do |format|
       if @rblog.update(rblog_params)
         format.html { redirect_to @rblog, notice: 'Rblog was successfully updated.' }
@@ -56,6 +58,7 @@ class RblogsController < ApplicationController
   # DELETE /rblogs/1
   # DELETE /rblogs/1.json
   def destroy
+    authorize @rblog
     @rblog.destroy
     respond_to do |format|
       format.html { redirect_to rblogs_url, notice: 'Rblog was successfully destroyed.' }
