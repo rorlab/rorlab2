@@ -22,16 +22,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :writer_id %>
-    <%= form.text_field :writer_id %>
+    <%= form.check_box :shared %>
+    <%= form.label :shared %>
   </div>
 
-  <div class="field">
-    <%= form.label :shared %>
-    <%= form.check_box :shared %>
-  </div>
+  <hr>
 
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>
+    <%= link_to 'Show', rblog, class: 'btn btn-success' %>
+    <%= link_to 'Back', rblogs_path, class: 'btn btn-secondary' %>
   </div>
 <% end %>

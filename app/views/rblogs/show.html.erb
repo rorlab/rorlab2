@@ -6,9 +6,11 @@
   </div>
 </div>
 
-<p>
+<hr>
+
+<p class='text-right'>
   <strong>Written by </strong>
-  <%= @rblog.writer.email %>, <%= @rblog.shared ? 'shared with members' : 'not shared'%>
+  <%= @rblog.writer.email %>, created at <%= @rblog.created_at.to_s(:db) %>, <%= @rblog.shared ? 'shared with members' : 'not shared'%>
 </p>
 
 <hr>
