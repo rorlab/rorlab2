@@ -1,8 +1,11 @@
 class Rblog < ApplicationRecord
   belongs_to :writer, class_name: 'User'
 
-  def poster_image_url
-    image_urls = content.match(%r{(http(?:s?):\/\/.*?\.(?:jpeg|jpg|gif|png))}).to_a
-    image_urls.size.positive? ? image_urls.first : nil
+  def image_urls
+    content.scan(%r{(http(?:s?):\/\/.*?\.(?:jpeg|jpg|gif|png))}).flatten
+  end
+
+  def random_image_url
+    image_urls.sample
   end
 end

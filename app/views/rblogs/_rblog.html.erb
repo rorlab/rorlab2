@@ -1,5 +1,5 @@
 <div class="rblog card">
-  <%= image_tag rblog.poster_image_url, class: 'card-img-top' if rblog.poster_image_url %>
+  <%= image_tag rblog.random_image_url, class: 'card-img-top' if rblog.random_image_url %>
   <div class="card-body">
     <h5 class="card-title"><%= rblog.title %></h5>
     <p class="card-text"><%= truncate rblog.content.strip, length: 200 %></p>

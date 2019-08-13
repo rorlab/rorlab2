@@ -1,15 +1,17 @@
-<h2 class='font-weight-bolder'>Rblogs</h2>
+<h2 class='font-weight-bolder'>Rblogs
+  <div class="text-right" style='margin-top: -2rem;'>
+    <%= link_to '글 추가', new_rblog_path, class: 'btn btn-primary' %>
+  </div>
+</h2>
+
 
 <div data-controller='endless'>
   <div id='rblogs' class="card-columns">
     <%= render @rblogs %>
   </div>
 
-  <div class='text-right'>
-    <button id='gotop' data-action='click->endless#gotop' class='btn btn-primary btn-sm'>Go to Top</button>
-  </div>
+  <button id='gotop' data-action='click->endless#gotop' class='btn btn-primary btn-sm'>Go to Top</button>
+
 </div>
 
 <%= will_paginate @rblogs %>
-
-<%= link_to 'New Rblog', new_rblog_path, class: 'btn btn-primary' %>
