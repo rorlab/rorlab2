@@ -7,14 +7,11 @@
 </div>
 
 <p>
-  <strong>Writer:</strong>
-  <%= @rblog.writer_id %>
+  <strong>Written by </strong>
+  <%= @rblog.writer.email %>, <%= @rblog.shared ? 'shared with members' : 'not shared'%>
 </p>
 
-<p>
-  <strong>Shared:</strong>
-  <%= @rblog.shared %>
-</p>
+<hr>
 
-<%= link_to 'Edit', edit_rblog_path(@rblog) %> |
-<%= link_to 'Back', rblogs_path %>
+<%= link_to 'Edit', edit_rblog_path(@rblog), class: 'btn btn-primary' %> 
+<%= link_to 'Back', rblogs_path, class: 'btn btn-primary' %>
