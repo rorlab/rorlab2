@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
-  skip_before_action :authenticate_user!
-  
+
   def index
+    authorize :welcome, :index?
   end
 end

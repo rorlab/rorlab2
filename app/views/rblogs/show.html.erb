@@ -15,5 +15,5 @@
 
 <hr>
 
-<%= link_to 'Edit', edit_rblog_path(@rblog), class: 'btn btn-primary' %> 
+<%= link_to 'Edit', edit_rblog_path(@rblog), class: 'btn btn-primary' if policy(@rblog).edit? %> 
 <%= link_to 'Back', rblogs_path, class: 'btn btn-primary' %>

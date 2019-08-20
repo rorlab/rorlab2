@@ -1,2 +1,6 @@
 ko:
   are_you_sure: '계속하시겠습니까?'
+  pundit:
+    default: '해당 작업에 대한 권한이 없습니다.'
+    rblog_policy:
+      show?: '계속하시려면 먼저 로그인하셔야 합니다.'

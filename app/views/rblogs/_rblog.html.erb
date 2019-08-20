@@ -3,7 +3,7 @@
   <div class="card-body">
     <h5 class="card-title"><%= rblog.title %></h5>
     <p class="card-text text-secondary"><%= truncate rblog.content.strip, length: 200 %></p>
-    <%= link_to 'Read', rblog, class: 'btn btn-success btn-sm' if policy(rblog).show? %>
+    <%= link_to 'Read', rblog, class: 'btn btn-success btn-sm' %>
     <%= link_to 'Edit', edit_rblog_path(rblog), class: 'btn btn-primary btn-sm' if policy(rblog).edit? %>
     <%= link_to 'Delete', rblog, method: 'delete', data:{ confirm: t('are_you_sure')}, class: 'btn btn-danger btn-sm' if policy(rblog).destroy? %>
   </div>

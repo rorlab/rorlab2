@@ -5,6 +5,7 @@ class RblogsController < ApplicationController
   # GET /rblogs.json
   def index
     @rblogs = Rblog.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    authorize @rblogs
   end
 
   # GET /rblogs/1
@@ -16,6 +17,7 @@ class RblogsController < ApplicationController
   # GET /rblogs/new
   def new
     @rblog = Rblog.new
+    authorize @rblog
   end
 
   # GET /rblogs/1/edit
@@ -27,6 +29,7 @@ class RblogsController < ApplicationController
   # POST /rblogs.json
   def create
     @rblog = Rblog.new(rblog_params)
+    authorize @rblog
     @rblog.writer = current_user
 
     respond_to do |format|
@@ -67,13 +70,14 @@ class RblogsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rblog
-      @rblog = Rblog.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def rblog_params
-      params.require(:rblog).permit(:title, :content, :writer_id, :shared)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rblog
+    @rblog = Rblog.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def rblog_params
+    params.require(:rblog).permit(:title, :content, :writer_id, :shared)
+  end
 end
