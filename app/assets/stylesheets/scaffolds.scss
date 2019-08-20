@@ -91,47 +91,31 @@ div {
 
 #error_explanation {
   margin-bottom: 1rem;
-  //width: 450px; 
   border: 2px solid #c82333;
   border-radius: 5px;
-  // padding: 7px 7px 0;
-  // margin-bottom: 20px;
   background-color: #c82333;
 
-  // h2 {
-  //   text-align: left;
-  //   font-weight: bold;
-  //   padding: 5px 5px 5px 15px;
-  //   font-size: 12px;
-  //   margin: -7px -7px 0;
-  //   background-color: #c82333;
-  //   color: #fff;
-  // }
 
   button {
     color: whitesmoke;
   }
-
-  // .collapsed {
-  //   border-radius: 5px 5px 5px 5px;
-  // }
 
   ul {
     margin: 0 .5rem .5rem .5rem;
     padding-top: .5rem;
     border-top: 1px solid whitesmoke;
     color: whitesmoke;
-    // padding-left: 2rem;
-    // border: 1px solid #c82333;
-    // border-radius: 0 0 5px 5px;
   }
 
   ul li {
     font-size: 12px;
     list-style: square;
   }
-}
 
-// label {
-//   display: block;
-// }
+  .dropdown-toggle::after {
+    text-align: right;
+    float: right;
+    /*Chrome IE fix*/
+    margin-top: 8px;
+  }
+}
