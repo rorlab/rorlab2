@@ -9,7 +9,7 @@ export default class extends Controller {
   connect() {
     let success_message = this.data.get("success")
     let info_message = this.data.get("info")
-    let warning_message = this.data.get("alert")
+    let warning_message = this.data.get("warning")
     let error_message = this.data.get("error")
     if (success_message) {
       console.log(success_message)
