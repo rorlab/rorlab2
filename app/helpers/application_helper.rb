@@ -1,7 +1,21 @@
 module ApplicationHelper
+  STYLES = {
+    regular: 'r',
+    solid: 's',
+    brands: 'b',
+    light: 'l',
+    duotone: 'd'
+  }.freeze
+
+  def fa_icon(style, fontname)
+    content_tag(:i, '', class: "fa#{STYLES[style]} fa-#{fontname}")
+  end
+    
   def user_profile(user, options={ width: '20px', class: 'rounded-circle'})
     user.email
     # user_profile_url = user.user_profile.nil? ? Gravatar.new(user.email).image_url : user.user_profile.avatar_url(:thumb)
     # image_tag(user_profile_url, width: options[:width], class: options[:class], style: 'background-color:#eaeaea;')
   end
+
+
 end
