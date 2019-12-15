@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit
+  add_flash_types :success, :info, :warning, :error
   after_action :verify_authorized, unless: :devise_controller?
 
   add_flash_types :info, :error

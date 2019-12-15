@@ -7,25 +7,26 @@ export default class extends Controller {
   static targets = []
 
   connect() {
-    let success_message = this.data.get("success")
-    let info_message = this.data.get("info")
-    let warning_message = this.data.get("warning")
-    let error_message = this.data.get("error")
-    if (success_message) {
-      console.log(success_message)
-      toastr.success(success_message)
-    }
-    if (info_message) {
-      console.log(info_message)
-      toastr.info(info_message)
-    }
-    if (warning_message) {
-      console.log(warning_message)
-      toastr.warning(warning_message)
-    }
-    if (error_message) {
-      console.log(error_message)
-      toastr.error(error_message)
+    let flash_key = this.data.get("key")
+    let flash_value = this.data.get("value")
+    
+    switch(flash_key) {
+      case 'notice':
+      case 'success':
+        toastr.success(flash_value);
+        breaks;
+      case 'info':
+        toastr.info(flash_value);
+        breaks;
+      case 'warning':
+        toastr.warning(flash_value);
+        breaks;
+      case 'alert':
+      case 'error':
+        toastr.error(flash_value);
+        breaks;
+      default:
+        toastr.success(flash_value);
     }
   }
 }

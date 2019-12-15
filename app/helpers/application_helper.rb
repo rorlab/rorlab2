@@ -13,6 +13,15 @@ module ApplicationHelper
       concat content_tag(:span, ' ' + text) if text.present?
     end
   end
+
+  def flash_messages
+    capture do
+      flash.each do |key, value|
+        concat tag.div(data: { controller: :flash, flash_key: key,
+    flash_value: value })
+      end
+    end
+   end  
   
   def user_profile(user, options={ width: '20px', class: 'rounded-circle'})
     user.email
