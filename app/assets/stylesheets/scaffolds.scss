@@ -100,6 +100,13 @@ div {
     color: whitesmoke;
   }
 
+  .btn:focus,
+  .btn:active:focus,
+  .btn.active:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
   ul {
     margin: 0 .5rem .5rem .5rem;
     padding-top: .5rem;
