@@ -7,10 +7,13 @@ module ApplicationHelper
     duotone: 'd'
   }.freeze
 
-  def fa_icon(style, fontname)
-    content_tag(:i, '', class: "fa#{STYLES[style]} fa-#{fontname}")
+  def fa_icon(style, fontname, text='')
+    capture do 
+      concat content_tag(:i, '', class: "fa#{STYLES[style]} fa-#{fontname}")
+      concat content_tag(:span, ' ' + text) if text.present?
+    end
   end
-    
+  
   def user_profile(user, options={ width: '20px', class: 'rounded-circle'})
     user.email
     # user_profile_url = user.user_profile.nil? ? Gravatar.new(user.email).image_url : user.user_profile.avatar_url(:thumb)
