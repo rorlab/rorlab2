@@ -1,24 +1,9 @@
-# README
+# RORLAB 2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- 레일스가이드 한글화 작업 https://railsguides.kr
+- 레일스 튜토리얼 : rTutorials
+- 즐겨찾기 URLs : rLinks
+- 구인&구직 : rEngineers
+- 레일스 개발한 웹사이트 등록소 : rSites
+- 레일스용어집 : rGlossary
+- 블로그 운영 : rBlog
