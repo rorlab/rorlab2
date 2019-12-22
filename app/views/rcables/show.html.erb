@@ -1,0 +1,19 @@
+<p>
+  <strong>Name:</strong>
+  <%= @rcable.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @rcable.user.email %>
+</p>
+
+<div id="messages-for-rcable-<%= @rcable.id %>" class='messages'>
+  <%= render partial: 'messages/message', collection:  @rcable.messages %>
+</div>
+<div class='message-form'>
+  <%= render '/messages/form', message: @message, rcable: @rcable %>
+</div>
+
+<%= link_to 'Edit', edit_rcable_path(@rcable), class: 'btn btn-primary' %>
+<%= link_to 'Back', rcables_path, class: 'btn btn-primary' %>

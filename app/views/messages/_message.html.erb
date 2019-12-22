@@ -1,0 +1,5 @@
+<% if message.persisted? %>
+  <div id="message_<%= message.id%>" class='message'>
+    <%= message&.user&.email %> : <%= message.content %>
+  </div>
+<% end %>

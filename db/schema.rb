@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_095241) do
+ActiveRecord::Schema.define(version: 2019_12_21_074147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "rcable_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["rcable_id"], name: "index_messages_on_rcable_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "rblogs", force: :cascade do |t|
     t.string "title"
@@ -23,6 +33,14 @@ ActiveRecord::Schema.define(version: 2019_08_13_095241) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["writer_id"], name: "index_rblogs_on_writer_id"
+  end
+
+  create_table "rcables", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_rcables_on_user_id"
   end
 
   create_table "roles", id: :serial, force: :cascade do |t|
@@ -62,5 +80,8 @@ ActiveRecord::Schema.define(version: 2019_08_13_095241) do
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
   end
 
+  add_foreign_key "messages", "rcables"
+  add_foreign_key "messages", "users"
   add_foreign_key "rblogs", "users", column: "writer_id"
+  add_foreign_key "rcables", "users"
 end
