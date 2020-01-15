@@ -4,16 +4,15 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = @rcable.message.new(message_params)
+    @message = @rcable.messages.new(message_params)
     authorize @message
     @message.user = current_user
 
-      if @message.save
-        # ActionCable.server.broadcast "rcable_#{@message.rcable.id}_channel", message: render(@message.to_json)
-        respond_to do |format|
-          format.js
-        end
+    if @message.save
+      respond_to do |format|
+        format.js
       end
+    end
   end
 
   private

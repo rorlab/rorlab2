@@ -13,9 +13,6 @@ consumer.subscriptions.create("RcableChannel", {
   received(data) {
     // Called when there's incoming data on the websocket for this channel
     console.log(data)
-  },
-
-  talk: function(message, rcable_id) {
-    return this.perform('talk');
+    $(`#message-for-rcable-${data.rcable_id}`).append(data.message)
   }
 });

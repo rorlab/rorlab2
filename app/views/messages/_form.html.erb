@@ -1,8 +1,4 @@
 <%= form_with(model: message, url: rcable_messages_path(rcable.id)) do |form| %>
-  <div class="input-group">
-    <%= form.text_area :content, class: 'form-control' %>
-    <div class='input-group-append'>
-      <%= form.submit class: 'btn btn-primary' %>
-    </div>
-  </div>
+  <%= form.text_area :content, class: 'form-control', data: { action: 'keypress->cable#handleKeypress'} %>
+  <%= form.submit class: 'd-none' %>
 <% end %>

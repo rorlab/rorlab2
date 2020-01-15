@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def assign_default_role
     add_role(:newuser) if roles.blank?
   end
+
+  def name
+    email.split('@')[0]
+  end
 end

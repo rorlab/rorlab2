@@ -1,14 +1,11 @@
-<p>
-  <strong>Name:</strong>
-  <%= @rcable.name %>
-</p>
-
-<p>
-  <strong>User:</strong>
+<strong>실시간 채팅:</strong>
+<div class='float-right'>
+  <strong>개설자:</strong>
   <%= @rcable.user.email %>
-</p>
+</div>
+<h1 class='text-center mb-4 font-weight-bold'><%= @rcable.name %></h1>
 
-<div id="messages-for-rcable-<%= @rcable.id %>" class='messages'>
+<div data-controller="cable" id="messages-for-rcable-<%= @rcable.id %>" class='messages' data-rcable-id="<%= @rcable.id %>">
   <%= render partial: 'messages/message', collection:  @rcable.messages %>
 </div>
 <div class='message-form'>

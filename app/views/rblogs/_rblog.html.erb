@@ -7,4 +7,4 @@
     <%= link_to fa_icon(:solid, 'edit', 'edit'), edit_rblog_path(rblog), class: 'btn btn-primary btn-sm' if policy(rblog).edit? %>
     <%= link_to fa_icon(:solid, 'trash', 'delete'), rblog, method: 'delete', data:{ confirm: t('are_you_sure')}, class: 'btn btn-danger btn-sm' if policy(rblog).destroy? %>
   </div>
-</div>      
+</div>

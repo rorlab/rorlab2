@@ -7,13 +7,14 @@
 - 레일스 개발한 웹사이트 등록소 : rSites
 - 레일스용어집 : rGlossary
 - 블로그 운영 : rBlog
-
+- 초보자를 위한 실시간 채팅
 
 # rCable 채팅기능 구현하기
 
 ActionCable 기능을 사용하여 공개채팅 기능을 구현한다.
 
 Rcable 모델
+
 - chat room 같은 역할을 한다.
 
 ```bash

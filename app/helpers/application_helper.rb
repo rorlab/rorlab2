@@ -8,7 +8,7 @@ module ApplicationHelper
   }.freeze
 
   def fa_icon(style, fontname, text='')
-    capture do 
+    capture do
       concat content_tag(:i, '', class: "fa#{STYLES[style]} fa-#{fontname}")
       concat content_tag(:span, ' ' + text) if text.present?
     end
@@ -21,13 +21,17 @@ module ApplicationHelper
     flash_value: value })
       end
     end
-   end  
-  
+   end
+
   def user_profile(user, options={ width: '20px', class: 'rounded-circle'})
     user.email
     # user_profile_url = user.user_profile.nil? ? Gravatar.new(user.email).image_url : user.user_profile.avatar_url(:thumb)
     # image_tag(user_profile_url, width: options[:width], class: options[:class], style: 'background-color:#eaeaea;')
   end
 
+  def gravatar_for(user, opts = {})
+    opts[:alt] = user.name
+    image_tag "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}?s=#{opts.delete(:size) { 40 }}", opts
+  end
 
 end
