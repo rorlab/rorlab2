@@ -95,6 +95,9 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    kramdown (2.1.0)
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     launchy (2.4.3-java)
@@ -186,6 +189,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rolify (5.2.0)
+    rouge (3.15.0)
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
     sass-rails (6.0.0)
@@ -267,6 +271,8 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   jbuilder (~> 2.7)
+  kramdown
+  kramdown-parser-gfm
   letter_opener_web (~> 1.0)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
@@ -274,6 +280,7 @@ DEPENDENCIES
   pundit
   rails (~> 6.0.2)
   rolify
+  rouge
   sass-rails (>= 6)
   selenium-webdriver
   spring
