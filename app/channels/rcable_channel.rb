@@ -1,13 +1,15 @@
 class RcableChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "rcable_#{params[:rcable_id]}_channel"
+    stream_for rcable
   end
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def talk(data)
-    console.log(data)
+  private
+
+  def rcable
+    Rcable.find(params[:rcable_id])
   end
 end

@@ -1,18 +1,28 @@
-import consumer from "./consumer"
+import consumer from "./consumer";
 
-consumer.subscriptions.create("RcableChannel", {
-  connected() {
-    // Called when the subscription is ready for use on the server
-    console.log("connected")
-  },
+$(document).on("turbolinks:load", function() {
+  consumer.subscriptions.create(
+    {
+      channel: "RcableChannel",
+      rcable_id: $(".messages").attr("data-rcable-id")
+    },
+    {
+      connected() {
+        // Called when the subscription is ready for use on the server
+        console.log(
+          `Connected to Rcable ID ${$(".messages").attr("data-rcable-id")}`
+        );
+      },
 
-  disconnected() {
-    // Called when the subscription has been terminated by the server
-  },
+      disconnected() {
+        // Called when the subscription has been terminated by the server
+      },
 
-  received(data) {
-    // Called when there's incoming data on the websocket for this channel
-    console.log(data)
-    $(`#message-for-rcable-${data.rcable_id}`).append(data.message)
-  }
+      received(data) {
+        // Called when there's incoming data on the websocket for this channel
+        $(".messages").append(data.message);
+        $(".messages").scrollTop($(".messages")[0].scrollHeight);
+      }
+    }
+  );
 });

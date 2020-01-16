@@ -1,4 +1,4 @@
-<%= form_with(model: message, url: rcable_messages_path(rcable.id)) do |form| %>
+<%= form_with(scope: :message, url: rcable_messages_path(rcable.id)) do |form| %>
   <%= form.text_area :content, class: 'form-control', data: { action: 'keypress->cable#handleKeypress'} %>
-  <%= form.submit class: 'd-none' %>
+  <%= form.button :submit, class: 'd-none' %>
 <% end %>

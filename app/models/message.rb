@@ -3,6 +3,8 @@ class Message < ApplicationRecord
   belongs_to :rcable
   after_create_commit { MessageBroadcastJob.perform_later(self) }
 
+  validates :content, presence: true
+
   def timestamp
     created_at.strftime('%H:%M:%S %d %B %Y')
   end

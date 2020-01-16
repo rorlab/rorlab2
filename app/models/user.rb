@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   rolify
+  has_many :rcables, dependent: :destroy
   has_many :messages, dependent: :destroy
 
   after_create :assign_default_role
