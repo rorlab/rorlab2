@@ -3,7 +3,7 @@ import { Controller } from "stimulus";
 export default class extends Controller {
   connect() {
     console.log("Connected to Cable Controller");
-    $(".messages").scrollTop($(".messages")[0].scrollHeight);
+    $("#rcable-messages").scrollTop($("#rcable-messages")[0].scrollHeight);
   }
 
   handleKeydown(event) {
@@ -14,7 +14,7 @@ export default class extends Controller {
     ) {
       console.log("Enter key pressed...");
       // $("button").click();
-      $("button").click();
+      $("#rcable-message-form button").click();
       $(".message-form form")[0].reset();
       event.preventDefault();
     }

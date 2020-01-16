@@ -6,20 +6,21 @@
 <h1 class='text-center mb-4 font-weight-bold'><%= @rcable.name %></h1>
 
 <div data-controller='cable'>
-  <div id="messages-for-rcable-<%= @rcable.id %>" 
-       class='messages' 
+  <!-- 실시간 채팅 메시지 -->
+  <div id="rcable-messages" 
+       data-channel-subscribe='rcable'
        data-rcable-id="<%= @rcable.id %>"
-       data-channel-subscribe='rcable'>
+       class='messages'>
     <%= render @rcable.messages %>
   </div>
 
   <!-- 채팅 메시지 입력 폼 -->
-  <div id="rcable-<%= @rcable.id %>-form" class="message-form">
+  <div id="rcable-message-form" class="message-form">
     <%= form_with scope: :message, url: rcable_messages_path(@rcable) do |form| %>
       <div class='message-content'>
-        <div>From <%= current_user.email %></div>
+        <div class='mb-1'><span class='badge badge-pill badge-warning'><%= current_user.email %></span></div>
         <%= form.text_area :content, rows: 3, class: 'form-control', data: { action: 'keydown->cable#handleKeydown' }%>
-        <%= form.button :send, style: 'display: none;' %>
+        <%= form.button :send, style: 'display:none;' %>
       </div>
     <% end %>
   </div>
