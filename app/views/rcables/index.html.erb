@@ -1,27 +1,10 @@
-<h1>Rcables</h1>
+<h1 class='font-weight-bold'>rCable 실시간 채팅
+  <div class="text-right" style='margin-top: -2rem;'>
+    <%= link_to '케이블 개설하기', new_rcable_path, class: 'btn btn-primary' %>
+  </div></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @rcables.each do |rcable| %>
-      <tr>
-        <td><%= rcable.name %></td>
-        <td><%= rcable.user_id %></td>
-        <td><%= link_to 'Show', rcable %></td>
-        <td><%= link_to 'Edit', edit_rcable_path(rcable) %></td>
-        <td><%= link_to 'Destroy', rcable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render @rcables %>
 
 <br>
 
-<%= link_to 'New Rcable', new_rcable_path %>
+<%= link_to '케이블 개설하기', new_rcable_path, class: 'btn btn-primary' %>

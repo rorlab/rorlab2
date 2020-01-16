@@ -24,6 +24,7 @@ class RcablesController < ApplicationController
 
   # GET /rcables/1/edit
   def edit
+    authorize @rcable
   end
 
   # POST /rcables
@@ -47,6 +48,7 @@ class RcablesController < ApplicationController
   # PATCH/PUT /rcables/1
   # PATCH/PUT /rcables/1.json
   def update
+    authorize @rcable
     respond_to do |format|
       if @rcable.update(rcable_params)
         format.html { redirect_to @rcable, notice: 'Rcable was successfully updated.' }
@@ -77,6 +79,6 @@ class RcablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rcable_params
-      params.require(:rcable).permit(:name, :user_id)
+      params.require(:rcable).permit(:name, :description, :user_id)
     end
 end
