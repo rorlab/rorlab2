@@ -5,7 +5,12 @@
     <%= sanitize markdown(message.content) %>
     <% if message.image.attached? %>
       <div class='alert alert-dark'>
-        <%= link_to image_tag(url_for(message.image.variant(resize_to_limit: [200, 200])), class: 'rounded'), url_for(message.image) %>
+        <% if message.image.content_type.include?('image') %>
+            <%= link_to image_tag(url_for(message.image.variant(resize_to_limit: [200, 200])), class: 'rounded'), url_for(message.image) %><br>
+            <%= link_to message.image.filename, rails_blob_path(message.image, disposition: "attachment") %>
+        <% else %>
+          <%= link_to message.image.filename, rails_blob_path(message.image, disposition: "attachment") %>
+        <% end %>
       </div>
     <% end %>
   </div>
