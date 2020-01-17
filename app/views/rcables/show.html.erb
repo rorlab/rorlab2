@@ -13,8 +13,10 @@
   </div>
 <% end %>
 
-<div class='d-flex align-items-center justify-content-center mb-4 font-weight-bold pt-2' style="height:200px; background-image: url('<%= url_for(@rcable.cover) %>'); background-repeat: no-repeat; background-size: cover; background-position: center center">
-<p class='display-4 font-weight-bolder' style="text-shadow: 2px 2px #FFF;"><%= @rcable.name %></p>
+<div class='cable-title-box' style="background-image: url('<%= @rcable.cover.attached? ? url_for(@rcable.cover) : image_url('chatting-card-image.png') %>');">
+  <p class='shadow-font'>
+    <%= @rcable.name %>
+  </p>
 </div>
 
 <% unless @rcable.description.blank? %>
