@@ -79,6 +79,6 @@ class RcablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rcable_params
-      params.require(:rcable).permit(:name, :description, :user_id)
+      params.require(:rcable).permit(:name, :description, :user_id, :cover)
     end
 end

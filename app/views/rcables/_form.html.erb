@@ -19,6 +19,22 @@
     <%= form.label :description %>
     <%= form.text_area :description, rows: 5, class: 'form-control' %>
   </div>
+  
+<div class="field">
+  <%= label_tag '커버 이미지' %>
+  <div class='alert alert-secondary'>
+    <% if rcable.cover.attached? %>
+      <div class='mb-2'>
+        <%= image_tag rcable.cover.variant(resize_to_limit: [300, 300]), class: "rounded", alt:"Card image cap" %>
+      </div>
+    <% end %>
+    <div class="custom-file" data-controller='file-upload' style='height: auto;'>
+      <%= form.file_field :cover, id: 'rcable_cover', name: 'rcable[cover]', class: 'custom-file-input' %>
+      <%= form.label :files, '파일선택', for: 'rcable_cover', class: 'custom-file-label' %>
+    </div>
+  </div>
+
+</div>
 
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>
@@ -26,3 +42,10 @@
     <%= link_to t("all.back"), rcables_path, class: 'btn btn-secondary' %>
   </div>
 <% end %>
+
+<script type="application/javascript">
+  $('input[type="file"]').change(function(e){
+      var fileName = e.target.files[0].name;
+      $('.custom-file-label').html(fileName);
+  });
+</script>

@@ -6,12 +6,22 @@
     | <%= link_to fa_icon(:solid, 'cog', t('.edit')), edit_rcable_path(@rcable) %>
   <% end %>
 </div>
-<h1 class='text-center mb-4 font-weight-bold'><%= @rcable.name %></h1>
-<div class='alert alert-dark'>
-  <%= @rcable.description %>
+
+<% if @rcable.cover.attached? %>
+  <div class='mb-2'>
+    <%#= image_tag @rcable.cover.variant(resize_to_fill: [700,200]), class: "rounded", alt:"Card image cap" %>
+  </div>
+<% end %>
+
+<div class='d-flex align-items-center justify-content-center mb-4 font-weight-bold pt-2' style="height:200px; background-image: url('<%= url_for(@rcable.cover) %>'); background-repeat: no-repeat; background-size: cover; background-position: center center">
+<p class='display-4 font-weight-bolder' style="text-shadow: 2px 2px #FFF;"><%= @rcable.name %></p>
 </div>
 
-
+<% unless @rcable.description.blank? %>
+  <div class='alert alert-dark'>
+    <%= @rcable.description %>
+  </div>
+<% end %>
 
 <div data-controller='cable'>
   <!-- 실시간 채팅 메시지 -->

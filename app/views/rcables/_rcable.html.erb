@@ -1,8 +1,12 @@
 <div class="card mr-3 mb-3 mt-3 d-inline-block">
-  <%= image_tag 'chatting-card-image.png', class: "card-img-top", alt:"Card image cap" %>
+  <% if rcable.cover.attached? %>
+    <%= image_tag rcable.cover.variant(resize_to_fill: [286, 180]), class: "card-img-top", alt:"Card image cap" %>
+  <% else %>
+    <%= image_tag 'chatting-card-image.png', class: "card-img-top", alt:"Card image cap" %>
+  <% end %>
   <div class="card-body">
     <h5 class="card-title font-weight-bolder"><%= rcable.name %><br><small><i><%= rcable.user.email %></i></small></h5>
-    <p class="card-text"><%= truncate(rcable.description, length: 100) || 'No Description' %></p>
+    <p class="card-text"><%= rcable.description.blank? ? 'No Description' : truncate(rcable.description, length: 100) %></p>
     <%= link_to '참여하기', rcable, class: 'btn btn-primary' %>
     <% if policy(rcable).edit? %>
       <div class='d-inline ml-2 float-right'>

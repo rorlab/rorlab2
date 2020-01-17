@@ -4,3 +4,4 @@ ko:
       rcable:
         name: "케이블명"
         description: "설명"
+        cover: "커버이미지"

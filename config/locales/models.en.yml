@@ -4,3 +4,4 @@ en:
       rcable:
         name: "name"
         description: "description"
+        cover: "cover image"
