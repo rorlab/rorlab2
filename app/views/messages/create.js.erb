@@ -1,5 +1,6 @@
 <% if @message.errors.size.zero? %>
     console.log("Successfully sent.")
 <% else %>
-    console.error("Errors occurred".")
+    console.error("유효성 검증 오류: <%= @message.errors.full_messages.join(" ") %>");
+    toastr.error("<%= @message.errors[:content].join("<br/>") %>");
 <% end %>

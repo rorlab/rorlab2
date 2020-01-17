@@ -7,7 +7,8 @@ environment.plugins.append(
     $: "jquery",
     jQuery: "jquery",
     Popper: ["popper.js", "default"],
-    i18n: "i18n-js"
+    i18n: "i18n-js",
+    toastr: "toastr"
   })
 );
 
