@@ -1,4 +1,8 @@
-<%= form_with(scope: :message, url: rcable_messages_path(rcable.id)) do |form| %>
-  <%= form.text_area :content, class: 'form-control', data: { action: 'keypress->cable#handleKeypress'} %>
-  <%= form.button :submit, class: 'd-none' %>
+<%= form_with scope: :message, url: rcable_messages_path(rcable) do |form| %>
+  <div class='message-content'>
+    <div class='mb-1'><span class='badge badge-pill badge-warning'><%= current_user.email %></span></div>
+    <%= form.text_area :content, rows: 3, class: 'form-control', data: { action: 'keydown->cable#handleKeydown' }%>
+    <%= form.file_field :image %>
+    <%= form.button :send, style: 'display:none;' %>
+  </div>
 <% end %>

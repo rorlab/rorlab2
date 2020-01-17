@@ -36,13 +36,7 @@
 
   <!-- 채팅 메시지 입력 폼 -->
   <div id="rcable-message-form" class="message-form">
-    <%= form_with scope: :message, url: rcable_messages_path(@rcable) do |form| %>
-      <div class='message-content'>
-        <div class='mb-1'><span class='badge badge-pill badge-warning'><%= current_user.email %></span></div>
-        <%= form.text_area :content, rows: 3, class: 'form-control', data: { action: 'keydown->cable#handleKeydown' }%>
-        <%= form.button :send, style: 'display:none;' %>
-      </div>
-    <% end %>
+    <%= render 'messages/form', rcable: @rcable %>
   </div>
 </div>
 

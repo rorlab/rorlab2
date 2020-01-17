@@ -3,5 +3,10 @@
     <strong><%= message.user.name %></strong> : 
     <div class='message-timestamp'><%= message.timestamp %></div>
     <%= sanitize markdown(message.content) %>
+    <% if message.image.attached? %>
+      <div class='alert alert-dark'>
+        <%= link_to image_tag(url_for(message.image.variant(resize_to_limit: [200, 200])), class: 'rounded'), url_for(message.image) %>
+      </div>
+    <% end %>
   </div>
 <% end %>
