@@ -17,10 +17,12 @@
   </div>
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description, class: 'form-control' %>
+    <%= form.text_area :description, rows: 5, class: 'form-control' %>
   </div>
 
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>
+    <%= link_to t("all.show"), @rcable, class: 'btn btn-secondary' if @rcable.persisted? %>
+    <%= link_to t("all.back"), rcables_path, class: 'btn btn-secondary' %>
   </div>
 <% end %>

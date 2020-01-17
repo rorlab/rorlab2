@@ -1,9 +1,18 @@
-<h1 class='font-weight-bold'>rCable 실시간 채팅
-  <div class="text-right" style='margin-top: -2rem;'>
+<h1 class='font-weight-bold'>Rcable 실시간 채팅
+  <div class="text-right" style='margin-top: -3rem;'>
     <%= link_to '케이블 개설하기', new_rcable_path, class: 'btn btn-primary' %>
   </div></h1>
 
-<%= render @rcables %>
+<div data-controller='endless'>
+  <div id='rcables' class="card-columns">
+    <%= render @rcables %>
+  </div>
+
+  <button id='gotop' data-action='click->endless#gotop' class='btn btn-primary btn-sm'>Go to Top</button>
+
+</div>
+
+<%= will_paginate @rcables %>
 
 <br>
 

@@ -2,8 +2,16 @@
 <div class='float-right'>
   <strong>개설자:</strong>
   <%= @rcable.user.email %>
+  <% if policy(@rcable).edit? %>
+    | <%= link_to fa_icon(:solid, 'cog', t('.edit')), edit_rcable_path(@rcable) %>
+  <% end %>
 </div>
 <h1 class='text-center mb-4 font-weight-bold'><%= @rcable.name %></h1>
+<div class='alert alert-dark'>
+  <%= @rcable.description %>
+</div>
+
+
 
 <div data-controller='cable'>
   <!-- 실시간 채팅 메시지 -->
@@ -26,5 +34,4 @@
   </div>
 </div>
 
-<%= link_to t('.edit'), edit_rcable_path(@rcable), class: 'btn btn-primary' %>
-<%= link_to t('.back'), rcables_path, class: 'btn btn-primary' %>
+<%= link_to t('all.back'), rcables_path, class: 'btn btn-primary' %>

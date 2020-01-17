@@ -1,5 +1,11 @@
 ko:
+  all:
+    show: "읽기"
+    back: "뒤로"
   rcables:
     show:
-      edit: "저장"
-      back: "뒤로"
+      edit: "수정"
+    edit:
+      title: "Rcable 수정하기"
+    new:
+      title: "Rcable 추가하기"

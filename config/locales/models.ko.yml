@@ -1,0 +1,6 @@
+ko:
+  activerecord:
+    attributes:
+      rcable:
+        name: "케이블명"
+        description: "설명"

@@ -1,0 +1,11 @@
+en:
+  all:
+    show: "Show"
+    back: "Back"
+  rcables:
+    show:
+      edit: "Edit"
+    edit:
+      title: "Editing Rcable"
+    new:
+      title: "New Rcable"

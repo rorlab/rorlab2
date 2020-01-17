@@ -25,6 +25,10 @@ class RcablePolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    user == record.user
+  end
+
   def destroy?
     user == record.user
   end

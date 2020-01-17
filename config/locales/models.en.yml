@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    attributes:
+      rcable:
+        name: "name"
+        description: "description"
