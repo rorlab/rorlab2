@@ -1,5 +1,6 @@
 <% if @message.errors.size.zero? %>
     console.log("Successfully sent.")
+    $("#rcable-message-form form")[0].reset();
 <% else %>
     console.error("유효성 검증 오류: <%= @message.errors.full_messages.join(" ") %>");
     toastr.error("<%= @message.errors[:content].join("<br/>") %>");

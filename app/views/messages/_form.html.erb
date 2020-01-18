@@ -3,6 +3,6 @@
     <div class='m-1'><span class='badge badge-pill badge-warning'><%= current_user.email %></span></div>
     <%= form.text_area :content, rows: 3, class: 'form-control', data: { action: 'keydown->cable#handleKeydown' }%>
     <%= form.file_field :image, class: 'm-1' %>
-    <%= form.button :send, style: 'display:none;' %>
+    <%= form.button "보내기", class: 'float-right m-1' %>
   </div>
 <% end %>
