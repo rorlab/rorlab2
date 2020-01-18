@@ -1,8 +1,24 @@
 <%= form_with scope: :message, url: rcable_messages_path(rcable) do |form| %>
   <div class='message-content'>
-    <div class='m-1'><span class='badge badge-pill badge-warning'><%= current_user.email %></span></div>
+    <div class='m-1'><div class='btn btn-success btn-sm badge-pill'><%= current_user.email %></div></div>
     <%= form.text_area :content, rows: 3, class: 'form-control', data: { action: 'keydown->cable#handleKeydown' }%>
-    <%= form.file_field :image, class: 'm-1' %>
-    <%= form.button "보내기", class: 'float-right m-1' %>
+    <%#= form.label :image, '파일선택', class: 'btn btn-sm btn-primary m-1' %>
+    <%#= form.file_field :image, class: 'm-1 d-none' %>
+    <div class="input-group p-1">
+      <div class="custom-file">
+        <%= form.file_field :image, id: 'customFile', class: 'custom-file-input' %>
+        <%= form.label :image, '파일선택', for: 'customFile', class: 'custom-file-label' %>
+      </div>
+      <div class="input-group-append">
+        <%= form.button "보내기", class: "btn btn-primary" %>
+      </div>
+    </div>
   </div>
 <% end %>
+
+<script type="application/javascript">
+  $('input[type="file"]').change(function(e){
+    var fileName = e.target.files[0].name;
+    $('.custom-file-label').html(`<div class='badge badge-warning'>선택한 파일</div> ${fileName}`);
+});
+</script>
