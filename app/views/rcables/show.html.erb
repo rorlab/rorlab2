@@ -30,6 +30,7 @@
   <div id="rcable-messages" 
        data-channel-subscribe='rcable'
        data-rcable-id="<%= @rcable.id %>"
+       data-channel-user-id="<%= current_user.id %>"
        class='messages'>
     <%= render @rcable.messages %>
   </div>
