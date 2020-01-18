@@ -27,6 +27,11 @@ Message 모델
 $ bin/rails g scaffold  Message user:references rcable:references content:text
 ```
 
-2020.1.17
+### 2020.1.17
 
-- rCable 수정/삭제 권한 지정
+- Rcable 수정/삭제 권한 지정
+- Rcable : 업로드 파일 전송하기
+
+### 2020.1.18
+
+- Kramdown 라인번호 옵션 설정하는 방법

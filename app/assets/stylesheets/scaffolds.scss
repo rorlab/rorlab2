@@ -17,9 +17,9 @@ td {
 }
 
 pre {
-  background-color: #eee;
+  // background-color: #eee;
   padding: 10px;
-  font-size: 11px;
+  // font-size: 11px;
 }
 
 a {
@@ -44,14 +44,13 @@ td {
 }
 
 div {
-
   &.field,
   &.actions {
     display: block;
     margin-bottom: 1rem;
 
     label {
-      margin-bottom: .2rem;
+      margin-bottom: 0.2rem;
     }
   }
 }
@@ -73,13 +72,13 @@ div {
   display: inline !important;
 }
 
-.field_with_errors>.form-control {
+.field_with_errors > .form-control {
   border: 1px solid #c82333;
   border-radius: 0 5px 5px 5px !important;
   margin-top: -3px;
 }
 
-.field_with_errors>label {
+.field_with_errors > label {
   padding: 2px 7px;
   background-color: #c82333;
   border: 1px solid #c82333;
@@ -95,7 +94,6 @@ div {
   border-radius: 5px;
   background-color: #c82333;
 
-
   button {
     color: whitesmoke;
   }
@@ -108,8 +106,8 @@ div {
   }
 
   ul {
-    margin: 0 .5rem .5rem .5rem;
-    padding-top: .5rem;
+    margin: 0 0.5rem 0.5rem 0.5rem;
+    padding-top: 0.5rem;
     border-top: 1px solid whitesmoke;
     color: whitesmoke;
   }

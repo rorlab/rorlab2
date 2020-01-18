@@ -35,7 +35,7 @@ module ApplicationHelper
   end
 
   def markdown(text)
-    Kramdown::Document.new(text, input: 'GFM').to_html
+    Kramdown::Document.new(text, input: GFM).to_html
   end
 
 end

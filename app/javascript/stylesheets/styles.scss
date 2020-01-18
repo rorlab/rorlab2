@@ -21,11 +21,6 @@ body {
   }
 }
 
-.highlight {
-  background-color: #fff !important;
-  border-radius: 5px;
-}
-
 .message-timestamp {
   float: right;
   color: #aaa;
@@ -36,6 +31,7 @@ body {
 
 .message {
   position: relative;
+  overflow: auto;
 
   p {
     display: inline;
@@ -64,10 +60,6 @@ body {
 
   hr {
     margin: 1rem 0;
-  }
-
-  pre.highlight {
-    border: 1px solid #ddd;
   }
 
   p > code {
