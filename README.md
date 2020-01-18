@@ -34,4 +34,5 @@ $ bin/rails g scaffold  Message user:references rcable:references content:text
 
 ### 2020.1.18
 
-- Kramdown 라인번호 옵션 설정하는 방법
+- Kramdown 라인번호 옵션 설정하는 방법 OK
+- 

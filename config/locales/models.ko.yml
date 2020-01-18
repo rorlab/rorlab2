@@ -1,6 +1,8 @@
 ko:
   activerecord:
     attributes:
+      user:
+        username: "사용자명"
       rcable:
         name: "케이블명"
         description: "설명"

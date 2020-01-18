@@ -2,6 +2,12 @@ class User < ApplicationRecord
   rolify
   has_many :rcables, dependent: :destroy
   has_many :messages, dependent: :destroy
+  NAME_REGEX = /\w+/
+
+  validates :username, presence: true, 
+                       uniqueness: { case_sensitive: false },
+                       format: { with: /\A#{NAME_REGEX}\z/i },
+                       length: { maximum: 15 }
 
   after_create :assign_default_role
   # Include default devise modules. Others available are:
@@ -15,6 +21,6 @@ class User < ApplicationRecord
   end
 
   def name
-    email.split('@')[0]
+    username || email.split('@')[0]
   end
 end

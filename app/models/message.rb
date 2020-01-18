@@ -11,4 +11,10 @@ class Message < ApplicationRecord
   def timestamp
     created_at.strftime('%H:%M:%S %d %B %Y')
   end
+
+  def mentions
+    content.scan(/@(#{User::NAME_REGEX})/).flatten.map do |username|
+      User.find_by(username: username)
+    end.compact
+  end
 end

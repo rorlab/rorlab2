@@ -32,6 +32,7 @@ body {
 .message {
   position: relative;
   overflow: auto;
+  border: 1px solid #ccc;
 
   p {
     display: inline;
@@ -72,14 +73,9 @@ body {
   }
 }
 
-dl {
-  // border: 1px solid #00F;
-}
-
 dt {
   display: inline-block;
   height: 30px;
-  // border: 1px solid #00F;
   zoom: 1;
   *display: inline;
 }
@@ -88,7 +84,6 @@ dd {
   display: inline-block;
   height: 30px;
   margin-left: 20px;
-  // border: 1px solid #00F;
   zoom: 1;
   *display: inline;
 }
