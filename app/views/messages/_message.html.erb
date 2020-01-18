@@ -2,7 +2,7 @@
   <div id="message_<%= message.id %>" class='message rounded bg-light bg-secondary p-1 m-1'>
     <strong><%= message.user.username %></strong> : 
     <div class='message-timestamp'><%= message.timestamp %></div>
-    <%= sanitize markdown(message.content) %>
+    <%= highlight(markdown(message.content), /@\w+/, sanitize: true, highlighter: '<i class="text-primary">\1</i>') %>
     <% if message.image.attached? %>
       <div class='alert alert-dark'>
         <% if message.image.representable? %>

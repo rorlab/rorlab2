@@ -5,7 +5,7 @@ class MessageBroadcastJob < ApplicationJob
     RcableChannel.broadcast_to message.rcable, message: render_message(message)
     message.mentions.each do |mention|
       ActionCable.server.broadcast "rcable_channel_user_#{mention.id}",
-                                   mention: true
+                                   mention: true, from: message.user.username
     end
   end
 

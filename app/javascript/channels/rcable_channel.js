@@ -36,7 +36,7 @@ $(document).on("turbolinks:load", function() {
           );
           if (data.mention) {
             // alert("You have a new mention");
-            toastr.success("You have a new mention.");
+            toastr.success(`You have a new mention from @${data.from}.`);
           }
         }
       }
