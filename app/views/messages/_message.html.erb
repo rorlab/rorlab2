@@ -12,10 +12,8 @@
             <%= link_to image_tag(url_for(message.image.preview(resize_to_limit: [200, 200])), class: 'rounded'), url_for(message.image) %>
           <% end %>
           <br>
-          <%= link_to fa_icon(:solid, 'download', message.image.filename.to_s), rails_blob_path(message.image, disposition: "attachment") %>
-        <% else %>
-          <%= link_to fa_icon(:solid, 'download', message.image.filename.to_s), rails_blob_path(message.image, disposition: "attachment") %>
         <% end %>
+        <%= link_to fa_icon(:solid, 'download', message.image.filename.to_s), rails_blob_path(message.image, disposition: "attachment") %>
       </div>
     <% end %>
   </div>
