@@ -17,15 +17,17 @@ Rcable 모델
 
 - 채팅방 같은 역할을 한다.
 
-```bash
-$ bin/rails g scaffold Rcable name description:text user:references
-```
+  ```bash
+  $ bin/rails g scaffold Rcable name description:text user:references
+  ```
 
 Message 모델
 
-```bash
-$ bin/rails g scaffold  Message user:references rcable:references content:text
-```
+- 채팅 메시지를 저장하는 모델
+
+  ```bash
+  $ bin/rails g scaffold  Message user:references rcable:references content:text
+  ```
 
 ### 2020.1.17
 
@@ -35,4 +37,7 @@ $ bin/rails g scaffold  Message user:references rcable:references content:text
 ### 2020.1.18
 
 - Kramdown 라인번호 옵션 설정하는 방법 OK
+
+### 2020.1.19
+
 - 
