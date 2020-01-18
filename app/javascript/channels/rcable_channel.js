@@ -29,12 +29,15 @@ $(document).on("turbolinks:load", function() {
 
       received(data) {
         // Called when there's incoming data on the websocket for this channel
-        $("#rcable-messages").append(data.message);
-        $("#rcable-messages").scrollTop($("#rcable-messages")[0].scrollHeight);
-        console.log(data.mention);
-        if (data.mention) {
-          // alert("You have a new mention");
-          toastr.success("You have a new mention.");
+        if ($("#rcable-messages").length > 0) {
+          $("#rcable-messages").append(data.message);
+          $("#rcable-messages").scrollTop(
+            $("#rcable-messages")[0].scrollHeight
+          );
+          if (data.mention) {
+            // alert("You have a new mention");
+            toastr.success("You have a new mention.");
+          }
         }
       }
     }
