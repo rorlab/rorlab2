@@ -116,3 +116,8 @@ dd {
 .message-form textarea {
   border-radius: 0;
 }
+
+// Custom File Input Button Label
+.custom-file-input ~ .custom-file-label::after {
+  content: "파일찾기";
+}
