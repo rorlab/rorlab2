@@ -4,7 +4,8 @@
     <%= form.text_area :content, rows: 3, class: 'form-control', data: { action: 'keydown->cable#handleKeydown' }%>
     <%#= form.label :image, '파일선택', class: 'btn btn-sm btn-primary m-1' %>
     <%#= form.file_field :image, class: 'm-1 d-none' %>
-    <div class="input-group p-1">
+    <div id="customFile" class="input-group p-1">
+      <!-- Placeholder for the file selection -->
       <div class="custom-file">
         <%= form.file_field :image, id: 'customFile', class: 'custom-file-input' %>
         <%= form.label :image, '파일선택', for: 'customFile', class: 'custom-file-label' %>
@@ -14,11 +15,25 @@
       </div>
     </div>
   </div>
-<% end %>
+<% end %> 
 
 <script type="application/javascript">
   $('input[type="file"]').change(function(e){
-    var fileName = e.target.files[0].name;
-    $('.custom-file-label').html(`<div class='badge badge-warning'>선택한 파일</div> ${fileName}`);
+    // Your existing code unmodified...
+    let iDiv = document.createElement('div');
+    iDiv.className = 'input-group-prepend';
+    $('#customFile').prepend(iDiv);
+
+    // Now create and append to iDiv
+    let innerLabel = document.createElement('label');
+    innerLabel.textContent = "선택한 파일"
+    innerLabel.className = 'input-group-text';
+    innerLabel.for = 'inputGroupSelect01';
+
+    // The variable iDiv is still good... Just append to it.
+    iDiv.appendChild(innerLabel);
+
+    let fileName = e.target.files[0].name;
+    $('.custom-file-label').html(fileName);
 });
 </script>
