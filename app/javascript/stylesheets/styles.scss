@@ -121,3 +121,10 @@ dd {
 .custom-file-input ~ .custom-file-label::after {
   content: "파일찾기";
 }
+
+#go-to-top {
+  display: none;
+}
+#go-to-bottom {
+  display: none;
+}

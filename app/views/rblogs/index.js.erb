@@ -1,4 +1,3 @@
-// $('#rblogs').append('<div>[<%= j @rblogs.current_page %> 페이지] -------------> </div>');
 $('#rblogs').append('<%= j render(@rblogs) %>');
 console.log("rendered page <%= @rblogs.current_page %>");
 

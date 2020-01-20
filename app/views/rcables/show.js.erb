@@ -1,0 +1,12 @@
+oldHeight = $("#rcable-messages")[0].scrollHeight;
+$('#rcable-messages').prepend('<%= j render(@messages.reverse) %>');
+newHeight = $("#rcable-messages")[0].scrollHeight;
+$("#rcable-messages").scrollTop(newHeight - oldHeight);
+console.log("rendered page <%= @messages.current_page %>");
+
+<% if @messages.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@messages) %>');
+  $(".pagination").hide();
+<% else %>
+  $('.pagination').remove();
+<% end %>

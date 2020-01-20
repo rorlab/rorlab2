@@ -14,6 +14,7 @@ class RcablesController < ApplicationController
   def show
     authorize @rcable
     @message = @rcable.messages.new
+    @messages = @rcable.messages.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
   end
 
   # GET /rcables/new

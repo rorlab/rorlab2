@@ -7,10 +7,11 @@ module ApplicationHelper
     duotone: 'd'
   }.freeze
 
-  def fa_icon(style, fontname, text='')
+  def fa_icon(style, fontname, opts = {} )
+    opts.reverse_merge(size: '1x', text: '')
     capture do
-      concat content_tag(:i, '', class: "fa#{STYLES[style]} fa-#{fontname}")
-      concat content_tag(:span, ' ' + text) if text.present?
+      concat content_tag(:i, '', class: "fa#{STYLES[style]} fa-#{fontname} fa-#{opts[:size]}")
+      concat content_tag(:span, ' ' + opts[:text]) if opts[:text].present?
     end
   end
 

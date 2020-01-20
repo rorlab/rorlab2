@@ -13,7 +13,7 @@
           <% end %>
           <br>
         <% end %>
-        <%= link_to fa_icon(:solid, 'download', message.image.filename.to_s), rails_blob_path(message.image, disposition: "attachment") %>
+        <%= link_to fa_icon(:solid, 'download', text: message.image.filename.to_s), rails_blob_path(message.image, disposition: "attachment") %>
       </div>
     <% end %>
   </div>

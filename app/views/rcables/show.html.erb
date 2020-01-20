@@ -3,7 +3,7 @@
   <strong>개설자:</strong>
   <%= @rcable.user.email %>
   <% if policy(@rcable).edit? %>
-    | <%= link_to fa_icon(:solid, 'cog', t('.edit')), edit_rcable_path(@rcable) %>
+    | <%= link_to fa_icon(:solid, 'cog', text: t('.edit')), edit_rcable_path(@rcable) %>
   <% end %>
 </div>
 
@@ -25,15 +25,17 @@
   </div>
 <% end %>
 
-<div data-controller='cable'>
+<div data-controller='cable reverse-endless'>
   <!-- 실시간 채팅 메시지 -->
   <div id="rcable-messages" 
        data-channel-subscribe='rcable'
        data-rcable-id="<%= @rcable.id %>"
        data-channel-user-id="<%= current_user.id %>"
        class='messages'>
-    <%= render @rcable.messages %>
+    <%= render @messages.reverse %>
   </div>
+
+  <%= will_paginate @messages %>
 
   <!-- 채팅 메시지 입력 폼 -->
   <div id="rcable-message-form" class="message-form">

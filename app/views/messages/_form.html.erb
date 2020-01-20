@@ -1,6 +1,14 @@
 <%= form_with scope: :message, url: rcable_messages_path(rcable) do |form| %>
   <div class='message-content'>
-    <div class='m-1'><div class='btn btn-success btn-sm badge-pill'><%= current_user.email %></div></div>
+    <div class='m-1'>
+      <div class='btn btn-success btn-sm badge-pill'>
+        <%= current_user.email %>
+      </div>
+
+      <a href='#' id='go-to-bottom' class="float-right" data-action="reverse-endless#goBottom"><%= fa_icon(:regular, 'arrow-alt-circle-down', size: '2x') %></a>
+      <a href='#' id='go-to-top' class="float-right" data-action="reverse-endless#goTop"><%= fa_icon(:regular, 'arrow-alt-circle-up', size: '2x') %></a>
+
+    </div>
     <%= form.text_area :content, rows: 3, class: 'form-control', data: { action: 'keydown->cable#handleKeydown' }%>
     <%#= form.label :image, '파일선택', class: 'btn btn-sm btn-primary m-1' %>
     <%#= form.file_field :image, class: 'm-1 d-none' %>

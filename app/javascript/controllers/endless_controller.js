@@ -1,6 +1,4 @@
-import {
-  Controller
-} from "stimulus";
+import { Controller } from "stimulus";
 
 export default class extends Controller {
   static targets = [];
@@ -8,11 +6,14 @@ export default class extends Controller {
   connect() {
     $(".pagination").hide();
     $("#gotop").hide();
-    if ($('.pagination').length && $(this).length) {
-      $(window).scroll(function () {
-        let url = $('.pagination .next_page').attr('href');
-        if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-          $('.pagination').text("Loading more posts...");
+    if ($(".pagination").length && $(this).length) {
+      $(window).scroll(function() {
+        let url = $(".pagination .next_page").attr("href");
+        if (
+          url &&
+          $(window).scrollTop() > $(document).height() - $(window).height() - 50
+        ) {
+          $(".pagination").text("Loading more posts...");
           return $.getScript(url);
         }
       });
@@ -21,8 +22,11 @@ export default class extends Controller {
   }
 
   gotop() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 200);
+    $("html, body").animate(
+      {
+        scrollTop: 0
+      },
+      200
+    );
   }
 }
